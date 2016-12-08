@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <% if flash.now[:messages] %>
+  <ul>
+    <% flash.now[:messages].each do |message| %>
+    <li>  <%= message %> </li>
+    <% end %>
+  </ul>
+  <% end %>
+</header>
+
+<head>
+  <title>NinetyNineCatsDay1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+    <ul>
+      <p>Welcome <%= current_user.username %></p>
+      <p> <%= button_to 'Logout', session_url,  method: :delete %> </p>
+    </ul>
+    <!-- <%# else %>
+      <%#= button_to 'Login', new_session_url, method: :get %> -->
+  <% end %>
+<%= yield %>
+
+</body>
+</html>

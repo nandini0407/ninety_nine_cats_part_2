@@ -1,0 +1,28 @@
+<!-- <h3> <%#= if @user %> </h3> -->
+
+<h1> Please enter log in information.</h1>
+
+<form action= "/users" method="POST">
+
+<!-- what do you mean??? -->
+
+  <!-- <input
+  type="hidden"
+  name="_method"
+  value="post"> -->
+
+  <input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+  <label for="username">Username</label>
+  <input type="text" name="user[username]" id="username">
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id="password">
+  <br>
+
+  <input type="submit" value="Sign Up ">
+</form>
